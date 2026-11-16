@@ -24,28 +24,33 @@ TEST(PasswordTest, empty_password) {
   int actual = my_password.count_leading_characters("");
   ASSERT_EQ(0, actual);
 }
+
 TEST(PasswordTest, just_lower_password) {
   Password my_password;
   bool actual = my_password.has_mixed_case("abc");
   ASSERT_EQ(false, actual);
 }
+
 TEST(PasswordTest, just_upper_password) {
   Password my_password;
   bool actual = my_password.has_mixed_case("ABC");
   ASSERT_EQ(false, actual);
 }
+
 TEST(PasswordTest, just_ascii_password) {
   Password my_password;
   bool actual = my_password.has_mixed_case("#$%^&*");
   ASSERT_EQ(false, actual);
 }
+
 TEST(PasswordTest, mixed_case_password) {
   Password my_password;
   bool actual = my_password.has_mixed_case("ABCabc");
   ASSERT_EQ(true, actual);
 }
+
 TEST(PasswordTest, mixed_case_ascii_password) {
   Password my_password;
   bool actual = my_password.has_mixed_case("_A-B/nC0ab@c");
-  ASSERT_EQ(false, actual);
+  ASSERT_EQ(true, actual);
 }

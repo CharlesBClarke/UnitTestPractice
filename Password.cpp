@@ -27,8 +27,8 @@ bool Password::has_mixed_case(string pass) {
   int uppers = 0;
   int lowers = 0;
   for (char p : pass) {
-    lowers += ('a' <= p and p >= 'z');
-    uppers += ('A' <= p and p >= 'Z');
+    lowers += ('a' <= p and p <= 'z');
+    uppers += ('A' <= p and p <= 'Z');
     if (lowers and uppers) {
       return true;
     }
