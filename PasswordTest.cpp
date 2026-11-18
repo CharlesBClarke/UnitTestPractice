@@ -19,10 +19,22 @@ TEST(PasswordTest, single_letter_password) {
   ASSERT_EQ(1, actual);
 }
 
-TEST(PasswordTest, empty_password) {
+TEST(PasswordTest, repeated_charecters) {
+  Password my_password;
+  int actual = my_password.count_leading_characters("aaaaaaaa");
+  ASSERT_EQ(8, actual);
+}
+
+TEST(PasswordTest, empty_password_leading_char) {
   Password my_password;
   int actual = my_password.count_leading_characters("");
   ASSERT_EQ(0, actual);
+}
+
+TEST(PasswordTest, empty_password_mixed) {
+  Password my_password;
+  bool actual = my_password.has_mixed_case("");
+  ASSERT_FALSE(actual);
 }
 
 TEST(PasswordTest, just_lower_password) {
